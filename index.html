@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas, Kirito</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /* Background gradien estetik di luar kotak */
+            background: linear-gradient(to bottom, #050b1a, #1a2850); 
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* KOTAK UTAMA (FRAME) TEMPAT VIDEO */
+        .video-container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3); 
+            border-radius: 30px; 
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        /* AREA VIDEO */
+        .video-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9; 
+            background: #000;
+            border-radius: 20px; 
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* TOMBOL PLAY/PAUSE */
+        .play-btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #0a1633;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: #1a2850;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.4);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">⬅ KEMBALI</a>
+
+    <div class="video-container">
+        
+        <div class="video-wrapper">
+            <video loop playsinline id="myVideo" preload="none">
+                <source src="kirito3.mp4" type="video/mp4">
+                Maaf, browser Anda tidak mendukung tag video.
+            </video>
+        </div>
+
+        <button class="play-btn" id="playBtn" onclick="toggleVideo()">▶️ PUTAR VIDEO</button>
+    </div>
+
+    <script>
+        function toggleVideo() {
+            const video = document.getElementById('myVideo');
+            const btn = document.getElementById('playBtn');
+
+            if (video.paused) {
+                // Memulai pemutaran langsung saat diklik
+                video.play();
+                btn.textContent = "⏸️ PAUSE VIDEO";
+            } else {
+                video.pause();
+                btn.textContent = "▶️ LANJUTKAN VIDEO";
+            }
+        }
+    </script>
+
+</body>
+</html>
